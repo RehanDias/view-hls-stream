@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>HLS Stream Viewer</title>
+      <link
+         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+         rel="stylesheet"
+      />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+         rel="stylesheet"
+      />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      />
+      <link rel="stylesheet" href="./assets/css/styles.css" />
+   </head>
+   <body>
+      <div class="container">
+         <h1 class="mb-4">HLS Stream Viewer</h1>
+         <button
+            type="button"
+            class="btn btn-info mb-3"
+            data-toggle="modal"
+            data-target="#instructionsModal"
+         >
+            <i class="fas fa-info-circle"></i> How to Get HLS URL
+         </button>
+
+         <div class="input-group mb-3">
+            <input
+               type="text"
+               id="hls-url"
+               class="form-control"
+               placeholder="Enter HLS URL"
+            />
+            <div class="input-group-append">
+               <button class="btn btn-primary" type="button" id="load-stream">
+                  <i class="fas fa-play"></i> Load Stream
+               </button>
+            </div>
+         </div>
+         <video id="video"></video>
+         <div class="video-controls-container">
+            <div class="btn-group">
+               <button type="button" class="btn btn-success" id="play">
+                  <i class="fas fa-play"></i>
+               </button>
+               <button type="button" class="btn btn-warning" id="pause">
+                  <i class="fas fa-pause"></i>
+               </button>
+               <button type="button" class="btn btn-secondary" id="fullscreen">
+                  <i class="fas fa-expand-arrows-alt"></i>
+               </button>
+            </div>
+         </div>
+      </div>
+
+      <div class="left-container">
+         <button
+            type="button"
+            class="btn btn-secondary theme-toggle"
+            id="theme-toggle"
+         >
+            <i class="fas fa-adjust"></i>
+         </button>
+      </div>
+
+      <div class="right-container">
+         <div id="volume-slider-container">
+            <i class="fas fa-volume-up" id="volume-icon"></i>
+            <input
+               type="range"
+               min="0"
+               max="1"
+               step="0.01"
+               value="1"
+               id="volume-slider"
+               style="width: 100px; margin-left: 10px"
+            />
+         </div>
+      </div>
+
+      <div
+         class="modal fade"
+         id="instructionsModal"
+         tabindex="-1"
+         role="dialog"
+         aria-labelledby="instructionsModalLabel"
+         aria-hidden="true"
+      >
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="instructionsModalLabel">
+                     Tutor Mendapatkan URL
+                  </h5>
+                  <button
+                     type="button"
+                     class="close"
+                     data-dismiss="modal"
+                     aria-label="Close"
+                  >
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <
+               <div class="modal-body">
+                  <ol>
+                     <li>Salin URL stream yang ingin Anda tonton.</li>
+                     <li>
+                        Buka
+                        <a
+                           href="https://github.io/rehandias/crawler-hls"
+                           target="_blank"
+                           >website ini</a
+                        >
+                        dan tempelkan URL stream tersebut di sana.
+                     </li>
+                     <li>
+                        Foilah! Anda akan mendapatkan URL HLS atau M3U8 yang
+                        bisa Anda copy dan paste di kolom di bawah ini untuk
+                        memulai streaming.
+                     </li>
+                  </ol>
+               </div>
+
+               <div class="modal-footer">
+                  <button
+                     type="button"
+                     class="btn btn-secondary"
+                     data-dismiss="modal"
+                  >
+                     Tutup
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script src="./assets/js/scripts.js"></script>
+   </body>
+</html>
